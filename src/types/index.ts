@@ -1,4 +1,5 @@
 
+
 // Token Creation Types
 export interface TokenData {
   name: string;
@@ -52,8 +53,9 @@ export const CONTRACT_ADDRESSES = {
   USDC_TOKEN: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
   TOKEN_CREATOR: "0x01A3ad1acc738cb60d48E08ccadC769904De256c",
   FEE_RECIPIENT: "0x7fDECF16574bd21Fd5cce60B701D01A6F83826ab",
-  MARKETPLACE: "0x0000000000000000000000000000000000000000" // Placeholder for marketplace address
+  MARKETPLACE: "0x0000000000000000000000000000000000000000" // Update this after deploying the marketplace contract
 };
 
 // Chain ID for Base network
 export const BASE_CHAIN_ID = 8453;
+
