@@ -38,7 +38,7 @@ type ListingFormValues = z.infer<typeof listingFormSchema>;
 
 const ListToken = () => {
   const navigate = useNavigate();
-  const { wallet, isLoading } = useWallet();
+  const { wallet, isLoading, connect } = useWallet();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Initialize form with default values
@@ -110,7 +110,7 @@ const ListToken = () => {
             <Card className="border-dashed">
               <CardContent className="pt-6 text-center">
                 <p className="mb-4">Connect your wallet to list tokens on the marketplace</p>
-                <Button onClick={() => wallet.connect} disabled={isLoading}>
+                <Button onClick={connect} disabled={isLoading}>
                   {isLoading ? 'Connecting...' : 'Connect Wallet'}
                 </Button>
               </CardContent>

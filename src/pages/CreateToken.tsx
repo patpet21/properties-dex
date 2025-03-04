@@ -32,7 +32,7 @@ const createTokenSchema = z.object({
 type CreateTokenFormValues = z.infer<typeof createTokenSchema>;
 
 const CreateToken = () => {
-  const { wallet, isLoading } = useWallet();
+  const { wallet, isLoading, connect } = useWallet();
   const [isCreating, setIsCreating] = useState(false);
   const [createdTokenAddress, setCreatedTokenAddress] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<string | null>(null);
@@ -132,7 +132,7 @@ const CreateToken = () => {
             <Card className="border-dashed">
               <CardContent className="pt-6 text-center">
                 <p className="mb-4">Connect your wallet to create property tokens</p>
-                <Button onClick={() => wallet.connect} disabled={isLoading}>
+                <Button onClick={connect} disabled={isLoading}>
                   {isLoading ? 'Connecting...' : 'Connect Wallet'}
                 </Button>
               </CardContent>
@@ -205,7 +205,7 @@ const CreateToken = () => {
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)}>
                     <CardContent className="space-y-4">
-                      <Alert variant="warning" className="bg-yellow-900/20 text-yellow-600 border-yellow-600/40">
+                      <Alert className="bg-yellow-900/20 text-yellow-600 border-yellow-600/40">
                         <AlertCircle className="h-4 w-4" />
                         <AlertTitle>Important</AlertTitle>
                         <AlertDescription>
